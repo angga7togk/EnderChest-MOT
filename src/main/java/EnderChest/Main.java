@@ -1,6 +1,7 @@
 package EnderChest;
 
 import EnderChest.commands.EnderChest;
+import EnderChest.listeners.EventListener;
 import EnderChest.util.EnderChestConfig;
 import cn.nukkit.Server;
 import cn.nukkit.plugin.PluginBase;
@@ -19,11 +20,14 @@ public class Main extends PluginBase {
             this.enderchestConfig.createDefault();
             String prefix = this.getEnderchestConfig().prefix();
             this.getServer().getLogger().info(prefix + "§aThe plugin has been activate!");
-            this.getServer().getCommandMap().register("help", new EnderChest("enderchest", this.getEnderchestConfig().description(), this.getEnderchestConfig().usagemessage(), new String[]{"ec"}));
+            this.getServer().getCommandMap().register("enderchest",
+                    new EnderChest());
+            this.getServer().getPluginManager().registerEvents(new EventListener(), this);
         } else {
             this.getLogger().alert("§cYou must been install FakeInventories!");
             this.getServer().getPluginManager().getPlugin("EnderChest").onDisable();
         }
+        
 
     }
 

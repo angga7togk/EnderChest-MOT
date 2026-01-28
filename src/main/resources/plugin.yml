@@ -6,7 +6,7 @@ depend:
   - FakeInventories
 main: EnderChest.Main
 permissions:
-  enderchest.see:
-    default: true
-  enderchest.see.other:
-    default: false
+  enderchest.use:
+    default: op
+  enderchest.other:
+    default: op

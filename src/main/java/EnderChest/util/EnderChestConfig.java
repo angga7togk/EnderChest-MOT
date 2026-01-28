@@ -5,25 +5,25 @@ import cn.nukkit.utils.Config;
 import java.io.File;
 
 public class EnderChestConfig {
-private Main plugin;
-private Config config;
-private File file;
+        private Main plugin;
+        private Config config;
+        private File file;
 
-public EnderChestConfig(Main plugin) {
-        this.plugin = plugin;
-        this.file = new File(plugin.getDataFolder(), "config.yml");
-        this.config = new Config(this.file, 2);
+        public EnderChestConfig(Main plugin) {
+                this.plugin = plugin;
+                this.file = new File(plugin.getDataFolder(), "config.yml");
+                this.config = new Config(this.file, 2);
         }
 
-public void createDefault() {
-        this.addDefault("enderchest.prefix", "§5EnderChest §f» ");
-        this.addDefault("enderchest.message.open", "§3You have open the §5EnderChest§3!");
-        this.addDefault("enderchest.message.usageMessage", "§4Please use /ec!");
-        this.addDefault("enderchest.message.hasNotPermission", "§4You can't use this command!");
-        this.addDefault("enderchest.message.isNotaPlayer", "§4You are not a player!");
-        this.addDefault("enderchest.message.playerIsNotOnline", "§4This Player is not online!");
-        this.addDefault("enderchest.options.openEnderchestMessage", true);
-        this.addDefault("enderchest.message.commandDescription", "Open your Enderchest!");
+        public void createDefault() {
+                this.addDefault("enderchest.prefix", "§5EnderChest §f» ");
+                this.addDefault("enderchest.message.open", "§3You have open the §5EnderChest§3!");
+                this.addDefault("enderchest.message.usageMessage", "§4Please use /ec!");
+                this.addDefault("enderchest.message.hasNotPermission", "§4You can't use this command!");
+                this.addDefault("enderchest.message.isNotaPlayer", "§4You are not a player!");
+                this.addDefault("enderchest.message.playerIsNotOnline", "§4This Player is not online!");
+                this.addDefault("enderchest.options.openEnderchestMessage", true);
+                this.addDefault("enderchest.message.commandDescription", "Open your Enderchest!");
         }
 
         public String prefix() {
@@ -60,8 +60,8 @@ public void createDefault() {
 
         public void addDefault(String path, Object object) {
                 if (!this.config.exists(path)) {
-                 this.config.set(path, object);
-                 this.config.save(this.file);
+                        this.config.set(path, object);
+                        this.config.save(this.file);
                 }
         }
 }
